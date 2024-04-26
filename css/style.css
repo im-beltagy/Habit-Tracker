@@ -1,0 +1,188 @@
+/*  Style Section Navigator:-
+    =======================
+    1. Global Rules [including: variables, container]
+    2. Pop-Up Message
+    3. Header
+    4. Habit Tracker
+    5. Tasks Section
+*/
+
+/*  ============
+    Global Rules
+    ============  */
+* {
+  box-sizing: border-box;
+  font-family: "Cairo", sans-serif;
+}
+:root {
+  /* Color Palette */
+  --background-color: #fff;
+  --accent-color: #47b5ff;
+  --dark-color: #273a9a;
+  --light-color: #fff;
+  /* Distance */
+  --bar-height: 60px;
+}
+body {
+  background-color: var(--background-color);
+}
+.container {
+  margin: 0 auto;
+  padding: 20px 20px 0;
+}
+@media (min-width: 576px) {
+  .container {
+    width: 550px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 800px;
+  }
+}
+/*  ======
+    Header
+    ======  */
+header {
+  display: flex;
+  border-bottom: 3px solid var(--accent-color);
+  padding: 0 10px;
+  justify-content: space-between;
+  align-items: stretch;
+}
+header input[type="text"],
+header .new-task {
+  border-bottom: none;
+  font-weight: bold;
+}
+header input[type="text"] {
+  flex-grow: 1;
+  font-size: 1.2em;
+  margin-right: 10px;
+}
+input[type="text"],
+.new-task {
+  background-color: transparent;
+  border: 3px solid var(--accent-color);
+  color: var(--accent-color);
+}
+.new-task:hover {
+  cursor: pointer;
+  background-color: var(--accent-color);
+  color: var(--light-color);
+}
+
+/*  =============
+    Habit Tracker
+    =============  */
+.habit-tracker {
+  margin-top: 5px;
+  border-top: 3px solid var(--accent-color);
+  padding: 0 10px;
+  display: flex;
+}
+.habit-tracker span,
+.habit-tracker .day-done {
+  display: block;
+  width: fit-content;
+  padding: 8px;
+  margin-right: 5px;
+  border: 3px solid var(--accent-color);
+  border-top: none;
+  /* Test Style */
+  color: var(--accent-color);
+  font-weight: bold;
+  user-select: none;
+}
+.habit-tracker span.current {
+  background-color: var(--accent-color);
+  color: var(--light-color);
+}
+.habit-tracker .day-done.done {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+.habit-tracker .day-done {
+  background-color: transparent;
+  margin-left: auto;
+  margin-right: 0;
+  cursor: pointer;
+}
+.habit-tracker .day-done:hover {
+  background-color: var(--accent-color);
+  color: var(--light-color);
+}
+
+/*  =============
+  Tasks Section
+  =============  */
+main {
+  margin-top: 20px;
+  border: 3px solid var(--accent-color);
+  padding: 0 10px;
+}
+main .no-tasks {
+  text-align: center;
+  color: var(--dark-color);
+}
+main .task {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 10px;
+  align-items: center;
+  border-bottom: 3px solid var(--dark-color);
+  margin-bottom: 10px;
+}
+.task .task-title {
+  position: relative;
+  margin: 5px;
+  color: var(--dark-color);
+}
+.task .btns button {
+  margin-left: 5px;
+  background-color: transparent;
+  color: var(--dark-color);
+  border-color: var(--dark-color);
+}
+.task .btns button:hover {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+.task .btns button.active {
+  cursor: pointer;
+  background-color: var(--accent-color);
+  color: var(--light-color);
+}
+main .task .details {
+  grid-column: 1 / 4;
+  color: var(--dark-color);
+  line-height: 1.6;
+  margin-top: 10px;
+}
+/* Check Box Style */
+.task .checkbox {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--dark-color);
+  cursor: pointer;
+}
+.task .checkbox::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* Style */
+  width: 10px;
+  height: 10px;
+}
+.task .checkbox:hover::before {
+  background-color: var(--dark-color);
+  opacity: 0.7;
+}
+.task.checked .checkbox::before {
+  background-color: var(--dark-color);
+}
